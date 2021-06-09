@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# PyCharm .idea
+restapi/.idea/
+
+# Python venv
+restapi/venv/
