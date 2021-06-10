@@ -10,6 +10,7 @@ class DBConnection:
 
     def __init__(self):
         self.__config = db_config
+        print(self.__config)
         self.__conn = psycopg2.connect(
             host=self.__config['host'],
             database=self.__config['database'],
@@ -20,3 +21,7 @@ class DBConnection:
     @property
     def connection(self) -> psycopg2:
         return self.__conn
+
+    @property
+    def cursor(self) -> psycopg2:
+        return self.__conn.cursor()

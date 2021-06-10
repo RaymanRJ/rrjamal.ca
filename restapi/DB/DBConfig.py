@@ -3,7 +3,7 @@ from yaml import Loader
 
 
 def __setup_db_config():
-    with open("./dbsettings.config.yml", "r") as ymlfile:
+    with open("../dbsettings.config.yml", "r") as ymlfile:
         config = yaml.load(ymlfile, Loader=Loader)
         return {
             "host": config["host"],
