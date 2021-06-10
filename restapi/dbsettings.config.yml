@@ -1,0 +1,4 @@
+database: DATABASE
+host: HOST
+pass: PASS
+user: USER
