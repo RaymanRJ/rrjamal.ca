@@ -108,3 +108,6 @@ restapi/.idea/
 
 # Python venv
 restapi/venv/
+
+# PyCache
+restapi/*/__pycache__/
