@@ -7,7 +7,7 @@ DB = os.getenv('DB')
 USER = os.getenv('DB_USER')
 PASS = os.getenv('DB_PASS')
 
-config_file='dbsettings.config.yml'
+config_file='./src/dbsettings.config.yml'
 with open(config_file, 'r') as ymlfile:
     loaded = yaml.load(ymlfile, Loader=Loader)
 
