@@ -1,4 +1,4 @@
-# Full-stack project behind [rrjamal.ca](https://www.rrjamal.ca)
+# Full-stack project behind [rrjamal.ca](https://rrjamal.ca)
 
 ## Front-end
 Built using react.
