@@ -8,11 +8,17 @@ import tian_tan from '../../assets/images/tian-tan-buddha.jpg'
 import tiger_temple from '../../assets/images/tiger-temple.jpg'
 import tiger_temple_2 from '../../assets/images/tiger-temple-2.jpg'
 import waujeongsa from '../../assets/images/waujeongsa-temple.jpg'
+import './carousel.css';
 
 const images = [
-    dongdaemun, olympic_park, shibuya,
-    shinjuku, tian_tan, tiger_temple, tiger_temple_2,
-    waujeongsa
+    {image: dongdaemun, title: "Dongdaemun Design Plaza"},
+    {image: olympic_park, title: "Seoul Olympic Park"},
+    {image: shibuya, title: "Shibuya Crossing"},
+    {image: shinjuku, title: "Shinjuku Goyen Park"},
+    {image: tian_tan, title: "Tian Tan Buddha"},
+    {image: tiger_temple, title: "Tiger Temple"},
+    {image: tiger_temple_2, title: "Tiger Temple"},
+    {image: waujeongsa, title: "Waujeonsa Temple"}
 ]
 
 function ControlledCarousel() {
@@ -23,26 +29,27 @@ function ControlledCarousel() {
     };
   
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <Col></Col>
-                <Col>
+                <Col xs={6}>
                     <Carousel activeIndex={index} onSelect={handleSelect}>
                         {
                             images.map((image, i) => {
                                 return (
-                                    <Carousel.Item key={i}>
+                                    <Carousel.Item 
+                                    key={i}>
                                         <Image
-                                        width="900px"
-                                        className="m-auto"
-                                        src={image}
+                                        src={image.image}
                                         fluid>
                                         </Image>
+                                        <Carousel.Caption>
+                                            <h3>{image.title}</h3>
+                                        </Carousel.Caption>
                                     </Carousel.Item>)
                             })
                         }
-                    </Carousel>
-                </Col>
+                    </Carousel></Col>
                 <Col></Col>
             </Row>
         </Container>
