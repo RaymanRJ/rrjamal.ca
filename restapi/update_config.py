@@ -6,6 +6,9 @@ HOST = os.getenv('DB_HOST')
 DB = os.getenv('DB')
 USER = os.getenv('DB_USER')
 PASS = os.getenv('DB_PASS')
+TEST = os.getenv('TEST_SECRET')
+
+print(f"Captured Test_Secret value: {TEST}")
 
 config_file = './src/dbsettings.config.yml'
 with open(config_file, 'r') as ymlfile:
