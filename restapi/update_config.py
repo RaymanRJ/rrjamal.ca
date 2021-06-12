@@ -8,8 +8,6 @@ USER = os.getenv('DB_USER')
 PASS = os.getenv('DB_PASS')
 TEST_SECRET = os.getenv('TEST_SECRET')
 
-print(f"Update_Config test var: {TEST_SECRET}")
-
 config_file = './src/dbsettings.config.yml'
 with open(config_file, 'r') as ymlfile:
     loaded = yaml.load(ymlfile, Loader=Loader)
