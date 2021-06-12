@@ -27,8 +27,4 @@ jobs:
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
         run: cd restapi/ && python3 update_config.py
       - name: Docker build
-<<<<<<< HEAD
         run: cd restapi/ && docker build -t restapi . && docker tag restapi:latest 369635783248.dkr.ecr.us-east-2.amazonaws.com/restapi:latest && docker push 369635783248.dkr.ecr.us-east-2.amazonaws.com/restapi:latest
-=======
-        run: cd restapi/ && docker build -t restapi . && docker push 369635783248.dkr.ecr.us-east-2.amazonaws.com/restapi:latest
->>>>>>> main
