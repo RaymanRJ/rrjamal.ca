@@ -26,5 +26,11 @@ jobs:
           DB_PASS: ${{ secrets.DB_PASS }}
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
         run: cd restapi/ && python3 update_config.py
+      - name: AWS ECR login
+        run: aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 369635783248.dkr.ecr.us-east-2.amazonaws.com
       - name: Docker build
-        run: cd restapi/ && docker build -t restapi . && docker tag restapi:latest 369635783248.dkr.ecr.us-east-2.amazonaws.com/restapi:latest && docker push 369635783248.dkr.ecr.us-east-2.amazonaws.com/restapi:latest
+        run: cd restapi/ && docker build -t restapi .
+      - name: Docker tag 
+        run: docker tag restapi:latest 369635783248.dkr.ecr.us-east-2.amazonaws.com/restapi:latest 
+      - name: Docker push
+        run: docker push 369635783248.dkr.ecr.us-east-2.amazonaws.com/restapi:latest
