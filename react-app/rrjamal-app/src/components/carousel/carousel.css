@@ -1,3 +1,15 @@
 .container-fluid{
     background-color: #343a40;
 }
+
+.img-fluid{
+    max-height: 500px;
+}
+
+.carousel-item{
+    min-height: 500px;
+}
+
+a:link, a:visited, a:hover, a:active{
+    color: white;
+}
