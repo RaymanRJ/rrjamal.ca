@@ -1,5 +1,4 @@
-import './App.css';
-<<<<<<< HEAD
+import './App.css'
 import Navigation from './components/navigation/navigation-bar'
 import {
   BrowserRouter
@@ -10,17 +9,6 @@ function App() {
     <BrowserRouter>
       <Navigation />
     </BrowserRouter>
-=======
-import Navigation from './components/nav/nav';
-import ControlledCarousel from './components/carousel/carousel'
-
-function App() {
-  return (
-    <div className="App">
-     <Navigation /> 
-     <ControlledCarousel />
-    </div>
->>>>>>> Staring homepage carousel
   );
 }
 
