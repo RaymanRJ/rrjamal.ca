@@ -17,9 +17,17 @@ class Projects extends React.Component {
                 (result) => {
                     this.setState({
                         isLoaded:true,
-                        items: result.map(result => result.id)
+                        items: result.map(item => ({ 
+                            id: item.id,
+                            name: item.name,
+                            full_name: item.full_name,
+                            html_url: item.html_url,
+                            description: item.description,
+                            url: item.url,
+                            created_at: item.created_at,
+                            updated_at: item.updated_at
+                        }))
                     });
-                    console.log(this.state);
                 },
                 (error) => {
                     this.setState({
@@ -39,9 +47,8 @@ class Projects extends React.Component {
             console.log("Not loaded");
             return <div>Loading...</div>;
         } else{
-            console.log(items);
             return <ul>
-                {items}
+                {items.map(item => <li key={item.id}>{item.name}</li>)}
             </ul>
         }
     };
