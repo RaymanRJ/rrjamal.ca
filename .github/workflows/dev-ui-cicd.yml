@@ -1,4 +1,4 @@
-name: ui-deployment
+name: development-ui-deployment
 
 on:
   push:
