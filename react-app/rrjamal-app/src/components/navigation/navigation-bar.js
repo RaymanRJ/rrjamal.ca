@@ -2,7 +2,6 @@ import React from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
 import Home from '../home/home'
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link
