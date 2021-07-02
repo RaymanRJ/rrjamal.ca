@@ -1,6 +1,9 @@
 import React from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
 import Home from '../home/home'
+import Profile from '../profile/profile'
+import Projects from '../projects/projects'
+import Contact from '../contact/contact'
 import {
   Switch,
   Route,
@@ -24,6 +27,9 @@ function Navigation() {
   <div>
     <Switch>
       <Route exact path='/' component={Home} />
+      <Route path='/profile' component={Profile} />
+      <Route path='/projects' component={Projects} />
+      <Route path='/contact' component={Contact} />
       <Route render={function () {
         return <p>Not found</p>
       }} />
