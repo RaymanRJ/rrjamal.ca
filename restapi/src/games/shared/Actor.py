@@ -1,6 +1,6 @@
 from typing import List
 
-from src.games.Piece import Piece
+from src.games.shared.Piece import Piece
 
 
 class Actor:

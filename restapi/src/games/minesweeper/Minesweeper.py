@@ -1,44 +1,69 @@
 import random
 from typing import List
 
-from src.games.Board import Board
-from src.games.Piece import Piece
-from src.games.Level import Level
-from src.games.Space import Space, Location
-from src.games.minesweeper.Mine import Mine
-from src.games.minesweeper.MinesweeperSpaceValue import MinesweeperSpaceValue
+from src.games.minesweeper.MinesweeperBoard import MinesweeperBoard
+from src.games.minesweeper.MinesweeperSpace import MinesweeperSpace
+from src.games.shared.Level import Level
+from src.games.shared.Space import Location
+from src.games.minesweeper.Pieces.Mine import Mine
 
 
 class Minesweeper:
 
-    __board: Board
+    __board: MinesweeperBoard
     __level: Level
 
     def __init__(self, level: Level):
         self.init_game(level)
-        __piece = Piece(None, MinesweeperSpaceValue.MINE, None)
 
     def init_game(self, level: Level):
         rows: int
         columns: int
         mines: int
-        spaces: List[Space] = list()
+        spaces: List[List[MinesweeperSpace]]
+        mine_spaces: List[MinesweeperSpace]
 
-        if level == Level.BEGINNER:
-            rows, columns, mines = 10, 10, 10
-        elif level == Level.INTERMEDIATE:
-            rows, columns, mines = 16, 16, 40
-        else:
-            rows, columns, mines = 16, 30, 99
+        rows, columns, mines = Minesweeper.get_level_details(level)
 
+        spaces = [[] * columns] * rows
         # Create spaces:
         for row in range(rows):
-            for column in range(columns):
-                spaces.append(Space(None, Location(row, column)))
+            spaces[row] = [MinesweeperSpace(None, Location(row, column)) for column in range(columns)]
 
         # Populate mines:
-        mined_spaces = random.sample(spaces, mines)
-        for space in mined_spaces:
-            space.add_piece(Mine("Mine"))
+        mine_columns = random.sample(range(columns), mines)
+        mine_rows = random.sample(range(rows), mines)
+        mine_spaces = list()
+        for (col, row) in zip(mine_columns, mine_rows):
+            spaces[row][col].add_piece(Mine("Mine"))
+            mine_spaces.append(spaces[row][col])
 
-        self.__board = Board("Minesweeper Board")
+        # Find other space values:
+        Minesweeper.discover_spaces(spaces, mine_spaces)
+        self.__board = MinesweeperBoard(spaces)
+
+    @staticmethod
+    def discover_spaces(spaces: List[List[MinesweeperSpace]], mines: List[MinesweeperSpace], level: Level):
+        for mine in mines:
+            mine_location = mine.location
+            surrounding_spaces = Minesweeper.get_surrounding_spaces(mine_location, level)
+
+    @staticmethod
+    def get_surrounding_spaces(location: Location, level: Level) -> List[Location]:
+        rows, columns, _ = Minesweeper.get_level_details(level)
+
+        if location.Y
+        pass
+
+    @staticmethod
+    def get_level_details(level: Level) -> (int, int, int):
+        """Returns rows, columns, mines"""
+        if level == Level.BEGINNER:
+            return 10, 10, 10
+        elif level == Level.INTERMEDIATE:
+            return 16, 16, 40
+        else:
+            return 16, 30, 99
+
+
+Minesweeper(Level.BEGINNER)

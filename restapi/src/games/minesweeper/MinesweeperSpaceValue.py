@@ -1,4 +1,4 @@
-from src.games.Piece import PieceValue
+from src.games.shared.Piece import PieceValue
 
 
 class MinesweeperSpaceValue(PieceValue):

@@ -1,12 +1,11 @@
-from abc import ABC
 from typing import List
 
-from src.games import Space
-from src.games.Actor import Actor
-from src.games.Piece import Piece
+from src.games.shared.Space import Space
+from src.games.shared.Actor import Actor
+from src.games.shared.Piece import Piece
 
 
-class Board(ABC, Actor):
+class Board(Actor):
     __spaces: List[List[Space]]  # 2D Board
     __pieces: List[Piece]
 
