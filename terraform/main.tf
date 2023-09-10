@@ -31,6 +31,18 @@ resource "aws_s3_bucket" "rrjamal_bucket" {
   force_destroy = true
 }
 
+resource "aws_s3_bucket" "rrjamal_asset_bucket" {
+  bucket = "${var.stack_name}-assets"
+  acl    = "public-read"
+  force_destroy = true
+
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["GET", "HEAD"]
+    allowed_origins = ["*"]
+  }
+}
+
 resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
   bucket = aws_s3_bucket.rrjamal_bucket.id
   policy = data.aws_iam_policy_document.allow_access_from_cloudfront.json
@@ -61,7 +73,6 @@ data "aws_iam_policy_document" "allow_access_from_cloudfront" {
     ]
   }
 }
-
 
 resource "aws_cloudfront_distribution" "rrjamal_distribution" {
   origin {
