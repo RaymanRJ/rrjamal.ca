@@ -1,32 +1,56 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-// Importing components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Resume from './pages/Resume';
-import Contact from './pages/Contact';
+import React, { useEffect, useState } from 'react';
+import { fetchUserRepositories } from './utils/githubAPI';
+import Project from './components/Project';
 import './App.css';
 
 function App() {
+    const [projects, setProjects] = useState([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        const repos = await fetchUserRepositories('RaymanRJ');
+        setProjects(repos);
+      };
+  
+      fetchData();
+    }, []);
+
+    useEffect(() => {
+        const updateSpotlightPosition = (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        document.body.style.setProperty('--x', `${x}px`);
+        document.body.style.setProperty('--y', `${y}px`);
+        };
+
+        // Add event listener when component mounts
+        document.addEventListener('mousemove', updateSpotlightPosition);
+
+        // Clean up the listener when the component is unmounted
+        return () => {
+            document.removeEventListener('mousemove', updateSpotlightPosition);
+        };
+    }, []); 
+
     return (
-        <Router>
-            <div className="wrapper">
-                <Navbar />
-                <Routes>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/about" component={About} />
-                    <Route path="/portfolio" component={Portfolio} />
-                    <Route path="/resume" component={Resume} />
-                    <Route path="/contact" component={Contact} />
-                </Routes>
-                <Footer />
-            </div>
-        </Router>
+        <div className="container">
+        <div className="left-column">
+            <h1>Rayman Jamal</h1>
+            <h3>Software Engineer based in Toronto</h3>
+            <p>I use my computer to build things.</p>
+            <a href="mailto:RaymanRJ@Gmail.com">Email</a>
+            {/* Add other contact links similarly */}
+        </div>
+        <div className="right-column">
+            {projects.map((project, index) => (
+            <Project key={index} title={project.title} description={project.description} />
+            ))}
+        </div>
+        </div>
     );
 }
 
 export default App;
+
+
+

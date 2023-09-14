@@ -1,92 +1,65 @@
-/* Global Styles */
+/* body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), 
+              linear-gradient(rgba(255, 255, 255, 0.08), transparent);
+  pointer-events: none;
+  z-index: 1;
+} */
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle 100px at var(--x) var(--y), rgba(255, 255, 255, 0.3), transparent 250px);
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+  will-change: background-position; /* for performance optimization */
+}
 
 body {
+  --x: 50%;  /* default x position */
+  --y: 50%;  /* default y position */
+  background-color: #252030; /* Dark purple/navy blue background */
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  color: white;
   margin: 0;
   padding: 0;
+  position: relative; /* Ensuring the ::before sits on top */
+
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-h1, h2, h3, h4, h5, p {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #333;
-}
-
-/* Navbar Styles */
-
-.navbar {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
-}
-
-.navbar-brand {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.navbar-nav {
-  list-style-type: none;
-  padding: 0;
   display: flex;
-  gap: 15px;
+  height: 100vh;
 }
 
-.nav-link {
-  color: #fff;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #ddd;
-}
-
-/* Page Styles */
-
-.home-page, .about-page, .portfolio-page, .resume-page, .contact-page {
-  padding: 60px 0;
-  background-color: #fff;
-  margin: 20px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer Styles */
-
-footer {
-  margin-top: auto; /* This pushes the footer to the bottom */
-  background-color: #333;
-  color: #fff;
-  padding: 20px 0;
-  width: 100%;
-}
-
-body, html {
-  height: 100%;
-}
-
-.wrapper {
+.left-column {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  align-items: flex-end;
+  padding: 5em;
 }
 
-/* Responsive Styles */
+.right-column {
+  flex: 2;
+  overflow-y: scroll;
+  padding: 2em;
+}
 
-@media (max-width: 768px) {
-  .navbar-nav {
-      flex-direction: column;
-      gap: 10px;
-  }
+.project {
+  margin-bottom: 2em;
+}
+
+.left-column h1 {
+  size: 10px;
 }
