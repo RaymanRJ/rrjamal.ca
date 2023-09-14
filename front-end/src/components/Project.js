@@ -3,7 +3,6 @@ import React from 'react';
 
 function Project(githubProject) {
     const { title, description } = githubProject;
-    console.log(githubProject);
 
     return (
         <div className="project">

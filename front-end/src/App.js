@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { fetchUserRepositories } from './utils/githubAPI';
 import Project from './components/Project';
+import PictureDisplay from './components/Picture';
 import './App.css';
 
 function App() {
     const [projects, setProjects] = useState([]);
+
+    const githubUser = "RaymanRJ";
+    const assetBucket = "https://rrjamal-assets.s3.amazonaws.com";
   
     useEffect(() => {
       const fetchData = async () => {
-        const repos = await fetchUserRepositories('RaymanRJ');
+        const repos = await fetchUserRepositories(githubUser);
         setProjects(repos);
       };
   
@@ -34,18 +38,19 @@ function App() {
 
     return (
         <div className="container">
-        <div className="left-column">
-            <h1>Rayman Jamal</h1>
-            <h3>Software Engineer based in Toronto</h3>
-            <p>I use my computer to build things.</p>
-            <a href="mailto:RaymanRJ@Gmail.com">Email</a>
-            {/* Add other contact links similarly */}
-        </div>
-        <div className="right-column">
-            {projects.map((project, index) => (
-            <Project key={index} title={project.title} description={project.description} />
-            ))}
-        </div>
+            <div className="left-column">
+                <h1>Rayman Jamal</h1>
+                <h3>Software Engineer based in Toronto</h3>
+                <p>I use my computer to build things.</p>
+                <a href="mailto:RaymanRJ@Gmail.com">Email</a>
+                {/* Add other contact links similarly */}
+            </div>
+            <div className="right-column">
+                <PictureDisplay assetBucket={assetBucket} />
+                {projects.map((project, index) => (
+                <Project key={index} title={project.title} description={project.description} />
+                ))}
+            </div>
         </div>
     );
 }
