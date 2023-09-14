@@ -18,23 +18,40 @@ body::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle 100px at var(--x) var(--y), rgba(255, 255, 255, 0.3), transparent 250px);
+  background: radial-gradient(circle 200px at var(--x) var(--y), rgba(255, 255, 255, 0.2), transparent 200px);
   pointer-events: none;
   z-index: 2;
   mix-blend-mode: overlay;
-  will-change: background-position; /* for performance optimization */
+  will-change: background-position;
 }
 
+/* body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+      radial-gradient(circle 140px at calc(var(--x) - 10px) calc(var(--y) - 10px), rgba(255, 255, 255, 0.2), transparent 180px),
+      radial-gradient(circle 120px at var(--x) var(--y), rgba(255, 255, 255, 0.3), transparent 170px),
+      radial-gradient(circle 130px at calc(var(--x) + 10px) calc(var(--y) + 10px), rgba(255, 255, 255, 0.2), transparent 190px);
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+  will-change: background-position;
+} */
+
+
 body {
-  --x: 50%;  /* default x position */
-  --y: 50%;  /* default y position */
-  background-color: #252030; /* Dark purple/navy blue background */
+  --x: 50%;
+  --y: 50%;
+  background-color: #252030;
   font-family: 'Arial', sans-serif;
   color: white;
   margin: 0;
   padding: 0;
-  position: relative; /* Ensuring the ::before sits on top */
-
+  position: relative;
 }
 
 .container {
@@ -51,16 +68,54 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  padding: 20px 40px;
+  color: #EDEDED;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  text-align: right;
+  cursor: default;
 }
 
 .right-column {
-  flex: 2;
-  overflow-y: scroll;
+  flex: 3;
+  /* overflow-y: scroll; */
 }
 
-
 .left-column h1 {
-  size: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1.2px;
+  color: #EDEDED;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.left-column h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.left-column p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  max-width: 80%;
+}
+
+.left-column .contact-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #FFA500;
+  color: #2D2D2D;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.left-column .contact-link:hover {
+  background-color: #FF8C00;
 }
 
 .project {

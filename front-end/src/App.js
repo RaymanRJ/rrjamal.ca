@@ -41,15 +41,13 @@ function App() {
             <div className="left-column">
                 <h1>Rayman Jamal</h1>
                 <h3>Software Engineer based in Toronto</h3>
-                <p>I use my computer to build things.</p>
-                <a href="mailto:RaymanRJ@Gmail.com">Email</a>
-                {/* Add other contact links similarly */}
+                <p>I type things into my machine. Things then happen in other machines. Sometimes those things even happen as planned.</p>
             </div>
             <div className="right-column">
-                <PictureDisplay assetBucket={assetBucket} />
-                {projects.map((project, index) => (
+                {/* <PictureDisplay assetBucket={assetBucket} /> */}
+                {/* {projects.map((project, index) => (
                 <Project key={index} title={project.title} description={project.description} />
-                ))}
+                ))} */}
             </div>
         </div>
     );
