@@ -14,7 +14,7 @@ variable "default_tags" {
   default = {
     Environment = "Production"
     Owner       = "Rayman Jamal"
-    Project     = "Elect The Ring Bearer"
+    Project     = "rrjamal"
     ManagedBy   = "Terraform"
   }
 }
