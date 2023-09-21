@@ -1,13 +1,8 @@
-import axios from 'axios';
+import HTTPFetch from './httpRequest';
 
 const fetchUserRepositories = async (username) => {
-  try {
-    const response = await axios.get(`https://api.github.com/users/${username}/repos`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching repositories: ", error);
-    return [];
-  }
-};
+  const url = `https://api.github.com/users/${username}/repos`;
+  return await HTTPFetch(url);
+}
 
 export { fetchUserRepositories };

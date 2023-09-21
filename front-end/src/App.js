@@ -19,7 +19,7 @@ function App() {
       };
   
       fetchData();
-    }, []);
+    }, [githubUser]);
 
     useEffect(() => {
         const updateSpotlightPosition = (e) => {
@@ -44,7 +44,7 @@ function App() {
                 <LeftColumn assetBucket={assetBucket} githubUser={githubUser} linkedInUser={linkedInUser}/>
             </div>
             <div className="right-column">
-                <RightColumn />
+                <RightColumn assetBucket={assetBucket}/>
             </div>
         </div>
     );
