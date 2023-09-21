@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { fetchUserRepositories } from './utils/githubAPI';
+import React, { useEffect } from 'react';
 import './App.css';
 import LeftColumn from './components/LeftColumn/LeftColumn';
 import RightColumn from './components/RightColumn/RightColumn';
 
 function App() {
-    const [projects, setProjects] = useState([]);
     
     const githubUser = process.env.REACT_APP_GITHUB_USER;
     const linkedInUser = process.env.REACT_APP_LINKEDIN_USER;
     const kaggleUser = process.env.REACT_APP_KAGGLE_USER;
     const assetBucket = `https://${process.env.REACT_APP_ASSET_BUCKET}.s3.amazonaws.com`;
     
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        const repos = await fetchUserRepositories(githubUser);
-        setProjects(repos);
-      };
-  
-      fetchData();
-    }, [githubUser]);
 
     useEffect(() => {
         const updateSpotlightPosition = (e) => {
