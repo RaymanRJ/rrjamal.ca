@@ -1,5 +1,5 @@
 import React from 'react';
-import PictureDisplay from '../Picture';
+// import PictureDisplay from '../Picture';
 
 function RightColumn({assetBucket}) {
     return (
