@@ -1,13 +1,8 @@
-import axios from 'axios';
+import HTTPFetch from './httpRequest';
 
 const fetchImageJson = async (jsonPath) => {
-  try {
-    const response = await axios.get(jsonPath);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching repositories: ", error);
-    return [];
-  }
-};
+  return await HTTPFetch(jsonPath);
+}
+
 
 export { fetchImageJson };
