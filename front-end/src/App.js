@@ -9,7 +9,8 @@ function App() {
     
     const githubUser = process.env.REACT_APP_GITHUB_USER;
     const linkedInUser = process.env.REACT_APP_LINKEDIN_USER;
-    const assetBucket = process.env.REACT_APP_ASSET_BUCKET;
+    const kaggleUser = process.env.REACT_APP_KAGGLE_USER;
+    const assetBucket = `https://${process.env.REACT_APP_ASSET_BUCKET}.s3.amazonaws.com`;
     
   
     useEffect(() => {
@@ -41,7 +42,7 @@ function App() {
     return (
         <div className="container">
             <div className="left-column">
-                <LeftColumn assetBucket={assetBucket} githubUser={githubUser} linkedInUser={linkedInUser}/>
+                <LeftColumn assetBucket={assetBucket} githubUser={githubUser} kaggleUser={kaggleUser} linkedInUser={linkedInUser}/>
             </div>
             <div className="right-column">
                 <RightColumn assetBucket={assetBucket}/>

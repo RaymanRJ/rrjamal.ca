@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Contact({assetBucket, githubUser, linkedInUser}) {
+function Contact({assetBucket, githubUser, kaggleUser, linkedInUser}) {
     return (
         <div className="contact">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -13,6 +13,10 @@ function Contact({assetBucket, githubUser, linkedInUser}) {
                 <li>
                     <i className="fab fa-linkedin"></i>
                     <a href={`https://linkedin.com/in/${linkedInUser}`} target="_blank" rel="noreferrer">LinkedIn</a>
+                </li>
+                <li>
+                    <i className="fab fa-kaggle"></i>
+                    <a href={`https://www.kaggle.com/${kaggleUser}`} target="_blank" rel="noreferrer">Kaggle</a>
                 </li>
                 <li>
                     <i className="fab fa-github"></i>
