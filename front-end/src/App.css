@@ -101,23 +101,52 @@ body {
 .left-column p {
   font-size: 16px;
   margin-bottom: 20px;
-  max-width: 80%;
 }
 
-.left-column .contact-link {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #FFA500;
-  color: #2D2D2D;
-  border-radius: 5px;
+.left-column .contact {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 10rem;
+  padding: 1rem 0;
+  color: #FFFFFF;            /* Changing text color to white for better contrast */
+}
+
+.left-column .contact h1 {
+  font-size: 30px;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.left-column .contact ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Adjusting the hover color for better visibility on dark purple */
+.left-column .contact a {
+  color: #FFFFFF;            /* Anchor color set to white */
+  transition: color 0.3s ease-in-out;
   text-decoration: none;
-  transition: background-color 0.3s ease;
 }
 
-.left-column .contact-link:hover {
-  background-color: #FF8C00;
+.left-column .contact a:hover {
+  text-decoration: underline;
+  color: #E0E0E0;            /* Light grey on hover for subtle change */
 }
 
-.project {
-  margin-bottom: 2em;
+.left-column .contact li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.left-column .contact li:last-child {
+  margin-bottom: 0;
+}
+
+.left-column .contact i {
+  margin-right: 10px;
+  color: #FFFFFF;            /* Changing icon color to white for better contrast */
 }
