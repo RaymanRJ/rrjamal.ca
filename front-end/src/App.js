@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import Bartender from './components/Bartender';
-import LeftColumn from './components/LeftColumn/LeftColumn';
+import Bartender from './components/Bartender/Bartender';
+import LeftColumn from './components/LeftColumn/LeftColumn/LeftColumn';
 import RightColumn from './components/RightColumn/RightColumn';
+
+import './App.css';
 
 function App() {
     const [showBartender, setShowBartender] = useState(true);
+    const [showLeftColumn, setShowLeftColumn] = useState(false);
+    const [showRightColumn, setShowRightColumn] = useState(false);
+
     const githubUser = process.env.REACT_APP_GITHUB_USER;
     const linkedInUser = process.env.REACT_APP_LINKEDIN_USER;
     const kaggleUser = process.env.REACT_APP_KAGGLE_USER;
@@ -30,22 +34,35 @@ function App() {
     }, []);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-          setShowBartender(false);
+        const bartenderTimer = setTimeout(() => {
+            setShowBartender(false);
         }, 2000);
+
+        const columnTimer = setTimeout(() => {
+            setShowLeftColumn(true);
+            setShowRightColumn(true);
+        }, 1000);
+
     
-        return () => clearTimeout(timer);
+        return () => {
+            clearTimeout(bartenderTimer);
+            clearTimeout(columnTimer);
+        };
       }, []);
 
     return (
         <div className="container">
             {showBartender && <Bartender />}
-            <div className="left-column">
-                <LeftColumn assetBucket={assetBucket} githubUser={githubUser} kaggleUser={kaggleUser} linkedInUser={linkedInUser}/>
-            </div>
-            <div className="right-column">
-                <RightColumn assetBucket={assetBucket}/>
-            </div>
+            {showLeftColumn && 
+                <div className="left-column">
+                    <LeftColumn assetBucket={assetBucket} githubUser={githubUser} kaggleUser={kaggleUser} linkedInUser={linkedInUser}/>
+                </div>
+            }
+            {showRightColumn && 
+                <div className="right-column">
+                    <RightColumn assetBucket={assetBucket}/>
+                </div>
+            }
         </div>
     );
 }
