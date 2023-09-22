@@ -35,6 +35,11 @@ jobs:
       - name: 'Build'
         run: npm run build
         working-directory: './front-end'
+        env:
+          REACT_APP_ASSET_BUCKET: ${{ secrets.REACT_APP_ASSET_BUCKET }}
+          REACT_APP_GITHUB_USER: ${{ secrets.REACT_APP_GITHUB_USER }}
+          REACT_APP_KAGGLE_USER: ${{ secrets.REACT_APP_KAGGLE_USER }}
+          REACT_APP_LINKEDIN_USER: ${{ secrets.REACT_APP_LINKEDIN_USER }}
         
       # Configure AWS Credentials
       - name: 'Configure AWS Credentials'
