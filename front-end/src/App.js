@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Bartender from './components/Bartender/Bartender';
 import LeftColumn from './components/LeftColumn/LeftColumn/LeftColumn';
 import RightColumn from './components/RightColumn/RightColumn/RightColumn';
+import Helmet from 'react-helmet';
 
 import './App.css';
 
@@ -52,6 +53,11 @@ function App() {
 
     return (
         <div className="container">
+            <Helmet>
+                <title>Rayman Jamal</title>
+                <meta name="description" content="Rayman Jamal's personal profile and portfolio. Experienced software engineer specializing in backend development, ETL development, and data engineering."/>
+            </Helmet>
+
             {showBartender && <Bartender />}
             {showLeftColumn && 
                 <div className="left-column">
