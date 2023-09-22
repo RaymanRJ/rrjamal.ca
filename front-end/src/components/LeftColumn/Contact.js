@@ -7,24 +7,34 @@ function Contact({assetBucket, githubUser, kaggleUser, linkedInUser}) {
             <h1>Contact</h1>
             <ul>
                 <li>        
-                    <i className="fas fa-envelope"></i>
-                    <a href="mailto:RaymanRJ@Gmail.com">Email</a>
+                    <a href="mailto:RaymanRJ@Gmail.com">    
+                        <i className="fas fa-envelope"></i>
+                        Email
+                    </a>
                 </li>
                 <li>
-                    <i className="fab fa-linkedin"></i>
-                    <a href={`https://linkedin.com/in/${linkedInUser}`} target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a href={`https://linkedin.com/in/${linkedInUser}`} target="_blank" rel="noreferrer">
+                        <i className="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
                 </li>
                 <li>
-                    <i className="fab fa-kaggle"></i>
-                    <a href={`https://www.kaggle.com/${kaggleUser}`} target="_blank" rel="noreferrer">Kaggle</a>
+                    <a href={`https://www.kaggle.com/${kaggleUser}`} target="_blank" rel="noreferrer">
+                        <i className="fab fa-kaggle"></i>
+                        Kaggle
+                    </a>
                 </li>
                 <li>
-                    <i className="fab fa-github"></i>
-                    <a href={`https://github.com/${githubUser}`} target="_blank" rel="noreferrer">GitHub</a>
+                    <a href={`https://github.com/${githubUser}`} target="_blank" rel="noreferrer">
+                        <i className="fab fa-github"></i>
+                        GitHub
+                    </a>
                 </li>
                 <li>
-                    <i className="fas fa-file-pdf"></i>
-                    <a href={`${assetBucket}/resume/Resume.pdf`} target="_blank" rel="noreferrer">Résumé</a>
+                    <a href={`${assetBucket}/resume/Resume.pdf`} target="_blank" rel="noreferrer">
+                        <i className="fas fa-file-pdf"></i>
+                        Résumé
+                    </a>
                 </li>
             </ul>
         </div>
