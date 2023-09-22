@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Bartender from './components/Bartender';
 import LeftColumn from './components/LeftColumn/LeftColumn';
 import RightColumn from './components/RightColumn/RightColumn';
 
 function App() {
-    
+    const [showBartender, setShowBartender] = useState(true);
     const githubUser = process.env.REACT_APP_GITHUB_USER;
     const linkedInUser = process.env.REACT_APP_LINKEDIN_USER;
     const kaggleUser = process.env.REACT_APP_KAGGLE_USER;
@@ -27,11 +27,19 @@ function App() {
         return () => {
             document.removeEventListener('mousemove', updateSpotlightPosition);
         };
-    }, []); 
+    }, []);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setShowBartender(false);
+        }, 2000);
+    
+        return () => clearTimeout(timer);
+      }, []);
 
     return (
         <div className="container">
-            <Bartender />
+            {showBartender && <Bartender />}
             <div className="left-column">
                 <LeftColumn assetBucket={assetBucket} githubUser={githubUser} kaggleUser={kaggleUser} linkedInUser={linkedInUser}/>
             </div>

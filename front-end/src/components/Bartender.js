@@ -3,14 +3,14 @@ import React, { useEffect } from 'react';
 function Bartender() {
 
   useEffect(() => {
-    const removeBars = () => {
+    const slideBarsOut = () => {
         const barsIn = document.querySelectorAll('.bar-in');
         barsIn.forEach((bar, i) => {
-            // bar.classList.remove('bar-in');
             bar.classList.add('bar-out');
         });
     };
-    setTimeout(removeBars, 1000);
+
+    setTimeout(slideBarsOut, 1000);
   }, []);
 
   return (
