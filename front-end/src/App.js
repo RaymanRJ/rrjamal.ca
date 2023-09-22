@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Bartender from './components/Bartender/Bartender';
 import LeftColumn from './components/LeftColumn/LeftColumn/LeftColumn';
-import RightColumn from './components/RightColumn/RightColumn';
+import RightColumn from './components/RightColumn/RightColumn/RightColumn';
 
 import './App.css';
 
