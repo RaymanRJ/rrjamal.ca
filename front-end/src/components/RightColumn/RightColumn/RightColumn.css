@@ -1,0 +1,17 @@
+.right-column {
+    padding: 5em;
+    flex: 3;
+    border-left: 4px solid goldenrod;
+    overflow-y: auto;
+}
+  
+
+
+/* Media query for mobile layout */
+@media (max-width: 768px) {
+    .right-column {
+        width: 100%;
+        text-align: center;
+        border: none !important;
+    }
+}

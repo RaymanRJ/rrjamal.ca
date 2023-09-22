@@ -1,6 +1,7 @@
 import React from 'react';
-import Bio from './Bio';
-import Contact from './Contact';
+import Bio from '../Bio/Bio';
+import Contact from '../Contact/Contact';
+import './LeftColumn.css';
 
 function LeftColumn({ assetBucket, githubUser, kaggleUser, linkedInUser }) {
     return (

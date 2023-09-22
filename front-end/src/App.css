@@ -1,16 +1,3 @@
-/* body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), 
-              linear-gradient(rgba(255, 255, 255, 0.08), transparent);
-  pointer-events: none;
-  z-index: 1;
-} */
-
 body::after {
   content: "";
   position: absolute;
@@ -25,24 +12,6 @@ body::after {
   will-change: background-position;
 }
 
-/* body::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-      radial-gradient(circle 140px at calc(var(--x) - 10px) calc(var(--y) - 10px), rgba(255, 255, 255, 0.2), transparent 180px),
-      radial-gradient(circle 120px at var(--x) var(--y), rgba(255, 255, 255, 0.3), transparent 170px),
-      radial-gradient(circle 130px at calc(var(--x) + 10px) calc(var(--y) + 10px), rgba(255, 255, 255, 0.2), transparent 190px);
-  pointer-events: none;
-  z-index: 2;
-  mix-blend-mode: overlay;
-  will-change: background-position;
-} */
-
-
 body {
   --x: 50%;
   --y: 50%;
@@ -54,154 +23,9 @@ body {
   position: relative;
 }
 
-.bartender {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  pointer-events: none;
-}
-
-.bar-in, .bar-out {
-  height: 20%;
-  width: 100%;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-}
-
-.bar-in {
-  background-color: goldenrod;
-  animation-name: tend;
-  animation-fill-mode: forwards;
-  transform: translateX(-100%);
-}
-
-.bar-out {
-  background-color: goldenrod;
-  animation-name: tendoutwards;
-  animation-fill-mode: forwards;
-  transform: translateX(0%);
-}
-
-@keyframes tend {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(0%); }
-}
- 
-@keyframes tendoutwards {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(100%);}
-}
-
-.bar-in:nth-child(1) { animation-delay: 0ms; }
-.bar-in:nth-child(2) { animation-delay: 100ms; }
-.bar-in:nth-child(3) { animation-delay: 200ms; }
-.bar-in:nth-child(4) { animation-delay: 300ms; }
-.bar-in:nth-child(5) { animation-delay: 400ms; }
-
-/* .bar-out:nth-child(1) { animation-delay: 0ms; }
-.bar-out:nth-child(2) { animation-delay: 1200; }
-.bar-out:nth-child(3) { animation-delay: 1300; }
-.bar-out:nth-child(4) { animation-delay: 1400; }
-.bar-out:nth-child(5) { animation-delay: 1500; } */
-
-
 .container {
   display: flex;
   height: 100vh;
-}
-
-.right-column, .left-column {
-  padding: 5em;
-}
-
-.left-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding: 20px 40px;
-  color: #EDEDED;
-  font-family: 'Arial', sans-serif;
-  line-height: 1.5;
-  text-align: right;
-  cursor: default;
-}
-
-.right-column {
-  flex: 3;
-  /* overflow-y: scroll; */
-}
-
-.left-column h1 {
-  font-size: 28px;
-  font-weight: bold;
-  font-family: 'Arial', sans-serif;
-  letter-spacing: 1.2px;
-  color: #EDEDED;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.left-column h3 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  font-weight: 400;
-}
-
-.left-column p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.left-column .contact {
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-top: 10rem;
-  padding: 1rem 0;
-  color: #FFFFFF;            /* Changing text color to white for better contrast */
-}
-
-.left-column .contact h1 {
-  font-size: 30px;
-  margin-bottom: 24px;
-  font-weight: 400;
-}
-
-.left-column .contact ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Adjusting the hover color for better visibility on dark purple */
-.left-column .contact a {
-  color: #FFFFFF;            /* Anchor color set to white */
-  transition: color 0.3s ease-in-out;
-  text-decoration: none;
-}
-
-.left-column .contact a:hover {
-  text-decoration: underline;
-  color: darkgoldenrod;            /* Light grey on hover for subtle change */
-}
-
-.left-column .contact li {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-}
-
-.left-column .contact li:last-child {
-  margin-bottom: 0;
-}
-
-.left-column .contact i {
-  margin-right: 10px;
-  color: #FFFFFF;            /* Changing icon color to white for better contrast */
 }
 
 /* Media query for mobile layout */
@@ -209,12 +33,14 @@ body {
   .container {
     flex-direction: column;
   }
-  .left-column,
-  .right-column {
+  .left-column *,
+  .right-column * {
     width: 100%;
     text-align: center;
+    border: none !important;
   }
-  .contact{
-    text-align: center;
+  .contact {
+    text-align: right;
   }
+
 }

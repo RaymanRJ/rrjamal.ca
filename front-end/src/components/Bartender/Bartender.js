@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './Bartender.css';
 
 function Bartender() {
 
