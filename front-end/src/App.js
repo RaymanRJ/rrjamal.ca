@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
+import Bartender from './components/Bartender';
 import LeftColumn from './components/LeftColumn/LeftColumn';
 import RightColumn from './components/RightColumn/RightColumn';
 
@@ -30,6 +31,7 @@ function App() {
 
     return (
         <div className="container">
+            <Bartender />
             <div className="left-column">
                 <LeftColumn assetBucket={assetBucket} githubUser={githubUser} kaggleUser={kaggleUser} linkedInUser={linkedInUser}/>
             </div>
