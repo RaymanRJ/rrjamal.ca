@@ -5,7 +5,7 @@ function Bartender() {
 
   useEffect(() => {
     const slideBarsOut = () => {
-        const barsIn = document.querySelectorAll('.bar-in');
+        const barsIn = document.querySelectorAll('.bar');
         barsIn.forEach((bar, i) => {
             bar.classList.add('bar-out');
         });
@@ -16,11 +16,11 @@ function Bartender() {
 
   return (
     <div className="bartender">
-      <div className="bar-in"></div>
-      <div className="bar-in"></div>
-      <div className="bar-in"></div>
-      <div className="bar-in"></div>
-      <div className="bar-in"></div>
+      <div className="bar"></div>
+      <div className="bar"></div>
+      <div className="bar"></div>
+      <div className="bar"></div>
+      <div className="bar"></div>
     </div>
   );
 }

@@ -37,7 +37,7 @@ function App() {
     useEffect(() => {
         const bartenderTimer = setTimeout(() => {
             setShowBartender(false);
-        }, 2000);
+        }, 2500);
 
         const columnTimer = setTimeout(() => {
             setShowLeftColumn(true);
