@@ -44,13 +44,14 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-        
+
       # Deploy to S3
       - name: 'Deploy to S3'
         run: |
           aws s3 sync ./front-end/build/ s3://rrjamal
-      
-      # Invalidate CloudFront Distribution
-      - name: 'Invalidate CloudFront Distribution'
+
+      # Fetch CloudFront Distribution ID based on domain name
+      - name: Get CloudFront Distribution ID && Invalidate CloudFront Distribution
         run: |
+          DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, Domain:Aliases.Items[0]} | [?Domain=='rrjamal.ca'].Id | [0]" --output text)
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
