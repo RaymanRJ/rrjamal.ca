@@ -39,3 +39,20 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
   bucket = aws_s3_bucket.rrjamal_bucket.id
   policy = var.iam_policy_document
 }
+
+resource "aws_s3_bucket_policy" "rrjamal_asset_bucket_policy" {
+  bucket = aws_s3_bucket.rrjamal_asset_bucket.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "PublicReadGetObject"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource  = "${aws_s3_bucket.rrjamal_asset_bucket.arn}/*"
+      }
+    ]
+  })
+}
