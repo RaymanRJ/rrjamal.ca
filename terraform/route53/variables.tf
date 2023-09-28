@@ -11,3 +11,8 @@ variable "validation_options" {
         resource_record_value = string
     }))
 }
+
+variable "cloudfront_domain_name" {
+    description = "The domain name of the CloudFront distribution"
+    type = string
+}
