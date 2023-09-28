@@ -42,6 +42,7 @@ module "route53" {
   source = "./route53"
   domain_name = local.domain_name
   validation_options = tolist(module.acm.domain_validation_options)
+  cloudfront_domain_name = module.cloudfront.cloudfront_domain_name
 }
 
 module "s3" {

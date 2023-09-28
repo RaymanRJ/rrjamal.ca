@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - 'front-end/**'
+    paths:
+      - 'front-end/**'
 
 env:
   AWS_REGION: us-east-2
@@ -54,4 +54,4 @@ jobs:
       - name: Get CloudFront Distribution ID && Invalidate CloudFront Distribution
         run: |
           DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, Domain:Aliases.Items[0]} | [?Domain=='rrjamal.ca'].Id | [0]" --output text)
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
