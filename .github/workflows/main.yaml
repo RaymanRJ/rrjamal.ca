@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - 'front-end/**'
+    paths:
+      - 'front-end/**'
 
 env:
   AWS_REGION: us-east-2
