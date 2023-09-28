@@ -31,8 +31,11 @@ module "cloudfront" {
 
 module "iam" {
   source = "./iam"
+  stack_name = var.stack_name
   s3_arn = module.s3.s3_arn
+  s3_asset_arn = module.s3.s3_asset_arn
   cloudfront_arn = module.cloudfront.cloudfront_distribution_arn
+  cicd_actions_group_name = var.cicd_actions_group_name
 }
 
 module "route53" {

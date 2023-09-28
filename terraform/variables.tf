@@ -18,3 +18,8 @@ variable "default_tags" {
     ManagedBy   = "Terraform"
   }
 }
+
+variable "cicd_actions_group_name" {
+  description = "The name of the IAM group for CICD actions"
+  default     = "cicd"
+}
