@@ -8,7 +8,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    key     = "rrjamal/terraform.tfstate"
+    key     = "rrjamal-terraform-states/terraform.tfstate"
   }
 }
 
